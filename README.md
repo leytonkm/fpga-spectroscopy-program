@@ -77,16 +77,16 @@ This experiment provides validation that the full acquisition pipeline operates 
         - Used a FIR compensation filter chain for noise reduction and anti-aliasing
 - ### C++ Driver:
     - Memory-Mapped I/O Management
-        - Advanced memory manangement for multiple address spaces including control, status, DMA, OCM, and more
-    - Perforamnce Optimizations
-        - Achieved 100x speedup through optimized data transfer and array retrieval to record billions of millions of datapoints
+        - Advanced memory management for multiple address spaces, including control, status, DMA, OCM, and more
+    - Performance Optimizations
+        - Achieved 100x speedup through optimized data transfer and array retrieval to record billions of datapoints
     - Hardware Abstraction:
         - Created a clean abstraction over Vivado Xilinx IP blocks
 - ### PyQt and Web Applications:
     - Real-Time Oscilloscope and Live View:
         - Live ADC visualization with autoscaling time and voltage scales
     - Trigger System
-        - Built multiple advanced trigger modes including peak, zero-cross, hysteresis, and edge-detection to handle complex spectoscopy graphs
+        - Built multiple advanced trigger modes, including peak, zero-cross, hysteresis, and edge-detection to handle complex spectroscopy graphs
         - Automatically detected periods with template matching for stable triggering views
     - Performance Optimizations:
         - Efficient circular buffer management and optimized plot updates, interacting with the C++ Driver and Vivado block design
