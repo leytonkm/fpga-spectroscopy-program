@@ -27,7 +27,7 @@ cell pavel-demin:user:axis_variable:1.0 ramp_phase_increment {
   aresetn rst_adc_clk/peripheral_aresetn
 }
 
-# Explicitly connect AXIS config interface for ramp frequency (Vivado 2017.2 expects connect_bd_intf_net)
+# Explicitly connect AXIS config interface for ramp frequency 
 connect_bd_intf_net [get_bd_intf_pins ramp_phase_increment/M_AXIS] [get_bd_intf_pins ramp_timer/S_AXIS_CONFIG]
 
 # Ramp waveform generator - converts phase to sawtooth
@@ -88,7 +88,7 @@ cell koheron:user:latched_mux:1.0 ramp_output_mux {
 
 # Format precision DAC data register for channels 2 and 3
 # precision_dac_data1 = (channel3_data << 16) + channel2_data
-# Channel 2 = ramp output, Channel 3 = zero (unused)
+# Channel 2 = ramp output, Channel 3 = zero (unused for now i guess)
 cell xilinx.com:ip:xlconcat:2.1 precision_dac_data1_concat {
   NUM_PORTS 2
   IN0_WIDTH 16
@@ -175,7 +175,7 @@ connect_bd_intf_net [get_bd_intf_pins dma_interconnect/M02_AXI] [get_bd_intf_pin
 # ADC Streaming Pipeline with CIC Decimation
 ####################################
 
-# ADC Control Connections (CRITICAL - these were missing!)
+# ADC Control Connections (off?)
 connect_pins [get_slice_pin [ctl_pin rf_adc_ctl0] 3 3] adc_dac/adc_clkout_dec
 connect_pins [get_slice_pin [ctl_pin adp5071_sync] 0 0] adc_dac/adp5071_sync_en
 connect_pins [get_slice_pin [ctl_pin adp5071_sync] 1 1] adc_dac/adp5071_sync_state
@@ -248,7 +248,7 @@ cell pavel-demin:user:axis_variable:1.0 cic_rate_control {
   aresetn rst_adc_clk/peripheral_aresetn
 }
 
-# Explicitly connect AXIS config interface between rate control and CIC (Vivado 2017.2 expects connect_bd_intf_net)
+# Explicitly connect AXIS config interface between rate control and CIC 
 connect_bd_intf_net [get_bd_intf_pins cic_rate_control/M_AXIS] [get_bd_intf_pins cic_decimator/S_AXIS_CONFIG]
 
 # Add FIR filter for CIC compensation 
@@ -303,7 +303,7 @@ cell koheron:user:tlast_gen:1.0 tlast_gen_0 {
 }
 
 ####################################
-# AXI DMA (S2MM only - no MM2S needed)
+# AXI DMA 
 ####################################
 
 cell xilinx.com:ip:axi_dma:7.1 axi_dma_0 {
